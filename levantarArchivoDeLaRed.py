@@ -48,7 +48,6 @@ for lugar in RedRefill.values():
         popup=lugar["nombre"],
         tooltip=lugar["nombre"],
         icon =folium.Icon(color="black", icon="circle")
-
     ).add_to(mapa)
 
 # Guardar el mapa
