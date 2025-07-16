@@ -12,8 +12,8 @@ RedRefill = {}
 def extraer_coordenadas(wkt):
     match = re.search(r'POINT \((-?\d+\.\d+) (-?\d+\.\d+)\)', wkt)
     if match:
-        lon = float(match.group(1))
-        lat = float(match.group(2))
+        lon = float(match.group(2))
+        lat = float(match.group(1))
         return (lon, lat)
     return None
 
@@ -42,13 +42,8 @@ mapa.get_root().html.add_child(folium.Element(font_awesome_css))
 
 # Agregar los puntos con iconos
 for lugar in RedRefill.values():
-    print(lugar["nombre"])
-    folium.Marker(
-        location=lugar["coordenadas"],
-        popup=lugar["nombre"],
-        tooltip=lugar["nombre"],
-        icon =folium.Icon(color="black", icon="circle")
-    ).add_to(mapa)
+    folium.Marker(lugar["coordenadas"], tooltip=lugar["nombre"], icon=folium.Icon(color="green")).add_to(mapa)
+
 
 # Guardar el mapa
 mapa.save('redrefill_mapa.html')

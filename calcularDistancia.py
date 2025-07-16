@@ -8,6 +8,13 @@ from geopy.geocoders import Nominatim
 # Crear geolocalizador
 geolocator = Nominatim(user_agent="mi_app_de_rutas")
 
+def calcularDistancia(puntoA, puntoB):
+    print(puntoA["nombre"])
+    print(puntoA["coordenadas"])
+    print(puntoB["nombre"])
+    print(puntoB["coordenadas"])
+    return
+
 # Buscar ubicación de El Cafecito
 location_cafecito = geolocator.geocode("El Cafecito, Puerto Escondido, México")
 print("El Cafecito:", (location_cafecito.latitude, location_cafecito.longitude))

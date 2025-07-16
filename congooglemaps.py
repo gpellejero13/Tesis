@@ -1,16 +1,13 @@
 import googlemaps
-
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
-# Cargar las variables del archivo .env
+# Cargar la clave desde el archivo .env
 load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
 
-# Obtener la clave
-google_api_key = os.getenv("GOOGLE_API_KEY")
-
-# Verifica si la carga fue correcta
-print("Tu clave es:", google_api_key)
+# Inicializar el cliente de Google Maps
+gmaps = googlemaps.Client(key=api_key)
 
 origen = "El Cafecito Zicatela, Puerto Escondido"
 destino = "Dan's Café Deluxe, Puerto Escondido"
